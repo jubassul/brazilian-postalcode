@@ -1,0 +1,92 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f2e2c6;
+}
+
+.title {
+    font-size: 85px;
+    color: #8eb695;
+    animation: flipTitle 2s;
+}
+@keyframes flipTitle {
+    from {
+        transform: rotateX(90deg);
+    }
+
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+.containerSearch {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 34px 0;
+    display: flex;
+    border-radius: 8px;
+    /* box-shadow: 1px 3px 8px rgb(254, 238, 238); */
+}
+
+.containerSearch input {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    margin-right: 8px;
+}
+
+.containerSearch input::placeholder {
+    color: #fb9da7;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.2);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    width: 500px;
+}
+
+.main h2 {
+    margin: 16px 0;
+    font-size: 39px;
+}
+
+.main span {
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+/*media query para ficar responsivo*/
+@media (max-width: 620px) {
+    .title {
+        font-size: 60px;
+    }
+
+    .main h2 {
+        font-size: 28px;
+    }
+
+    .main {
+        width: 80px;
+        min-height: 250px;
+    }
+}
