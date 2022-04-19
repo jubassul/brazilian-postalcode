@@ -32,7 +32,7 @@ function App() {
           onChange={(event) => setInput(event.target.value)}
         />
         <button className="button" onClick={handleSearch}>
-          <FiSearch size={25} color="#8eb695" />
+          <FiSearch size={25} color="#4e639e" />
         </button>
       </div>
       {Object.keys(cep).length > 0 && (
