@@ -3,8 +3,13 @@ import { FiSearch } from "react-icons/fi";
 import "./styles.css";
 import api from "./services/api";
 function App() {
-  const [input, setInput] = useState("");
-  const [cep, setCep] = useState({});
+  const [input, setInput] = useState(""); // busca cep
+  const [cep, setCep] = useState({}); //renderizar enderecos na tela
+  const [inputUf, setInputUf] = useState("");
+  const [inputCity, setInputCity] = useState("");
+  const [inputAddress, setInputAdress] = useState("");
+  const [searchCep, setSearchCep] = useState([]); //renderizar ceps encontrados na tela
+
   async function handleSearch() {
     if (input === "") {
       alert("Preencha algum cep");
@@ -18,6 +23,24 @@ function App() {
     } catch {
       alert("Ops, erro ao buscar");
       setInput("");
+    }
+  }
+  async function handleSearchCep() {
+    if (inputUf === "" || inputAddress === "" || inputCity === "") {
+      alert("Prencha os campos ");
+      return;
+    }
+    try {
+      const responseSearchCep = await api.get(
+        `${inputUf}/${inputCity}/${inputAddress}/json`
+      );
+      console.log(responseSearchCep.data);
+      setSearchCep(responseSearchCep.data);
+    } catch {
+      alert("Erro");
+      setInputUf("");
+      setInputAdress("");
+      setInputCity("");
     }
   }
 
@@ -35,17 +58,49 @@ function App() {
           <FiSearch size={25} color="#4e639e" />
         </button>
       </div>
+      <div>
+        <div className="containerSearch">
+          <input
+            type="text"
+            placeholder="Digite o seu UF"
+            value={inputUf}
+            onChange={(event) => setInputUf(event.target.value)}
+          />
+        </div>
+        <div className="containerSearch">
+          <input
+            type="text"
+            placeholder="Digite a sua Cidade"
+            value={inputCity}
+            onChange={(event) => setInputCity(event.target.value)}
+          />
+        </div>
+        <div className="containerSearch">
+          <input
+            type="text"
+            placeholder="Digite o seu Logradouro"
+            value={inputAddress}
+            onChange={(event) => setInputAdress(event.target.value)}
+          />
+        </div>
+        <button className="button" onClick={handleSearchCep}>
+          <FiSearch size={25} color="#4e639e" />
+        </button>
+      </div>
       {Object.keys(cep).length > 0 && (
-        <main className="main">
+        <div className="main">
           <h2>CEP: {cep.cep}</h2>
           <span>Rua: {cep.logradouro}</span>
           <span>Complemento: {cep.complemento}</span>
           <span>Bairro: {cep.bairro}</span>
           <span>
-            {cep.localidade} - {cep.uf}{" "}
+            {cep.localidade} - {cep.uf}
           </span>
-        </main>
+        </div>
       )}
+      <div className="main">
+      <h2> CEPS Encontrados: {searchCep.cep} </h2>
+      </div>
     </div>
   );
 }
