@@ -98,9 +98,16 @@ function App() {
           </span>
         </div>
       )}
-      <div className="main">
-      <h2> CEPS Encontrados: {searchCep.cep} </h2>
-      </div>
+      {Object.keys(searchCep).length > 0 && (
+        <div className="main">
+          <h2>Ceps Encontrados:</h2>
+          <ul>
+            {searchCep.map((searchCeps) => (
+              <li key={searchCeps.cep}>{searchCeps.cep}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
