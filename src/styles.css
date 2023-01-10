@@ -1,100 +1,138 @@
-.container {
-  height: 100vh;
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  background-image: linear-gradient(
-    to bottom,
-    #2e2050,
-    #674a86,
-    #8766ae,
-    #c49cd6
-  );
+  padding-top: 80px;
+  padding-bottom: 30px;
+}
+.subtitle {
+  text-align: center;
+}
+.container {
+  height: 100vh;
 }
 
 .title {
-  font-size: 85px;
-  color: #edeee9;
-  animation: flipTitle 2s;
+  padding-top: 10px;
+}
+.icon {
+  width: 50px;
+  height: 50px;
 }
 
-@keyframes flipTitle {
-  from {
-    transform: rotateX(90deg);
-  }
-
-  to {
-    transform: rotateX(0deg);
-  }
-}
-
-.containerSearch {
-  background-color: #edeee9;
-  padding: 15px;
-  margin: 34px 0;
+.content {
   display: flex;
-  border-radius: 8px;
+  align-items: center;
+  justify-content: space-around;
+}
+.input-search-address {
+  margin: 22px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: #bc8cf2;
+  border-style: solid;
+  background-color: #eeeeee;
+  position: relative;
 }
 
-.containerSearch input {
+.input-postal-code {
+  margin: 22px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: #bc8cf2;
+  border-style: solid;
+  background-color: #eeeeee;
+}
+input:focus {
+  outline-color: #aa14f0;
+  background-color: #ffff;
+  box-shadow: 3px -2px 8px #bc8cf2;
+}
+input::placeholder {
+  color: #000000;
+  font-weight: 600;
+}
+
+.title {
+  color: black;
+}
+
+.containerSearchAddress {
+  position: relative;
+}
+.containerSearchCep {
+  display: flex;
+  flex-direction: column;
+}
+.search-address {
+  position: relative;
+  width: 180px;
+}
+.search-img {
+  margin-top: 30px;
+  background-color: #eeee;
+}
+
+.button-address {
   background-color: transparent;
-  border: none;
-  font-size: 20px;
-  outline: none;
-  margin-right: 8px;
+  border-style: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10px;
+}
+.button-address input {
+  width: 100%;
+}
+.button-postal-code {
+  background-color: #bc8cf2;
+  border-radius: 5px;
+  padding: 10px;
+  border-style: none;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-weight: 600;
+}
+.button-postal-code:hover {
+  box-shadow: 1px 2px 6px #aa14f0;
 }
 
-.containerSearch input::placeholder {
-  color: #8766ae;
-}
-
-.button {
-  background-color: transparent;
-  border: none;
+.content-main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  height: 40vh;
+  padding-top: 40px;
 }
-
-.button:hover {
-  transform: scale(1.2);
-}
-
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #ffff;
   width: 500px;
-  border-radius: 8rem;
-  box-shadow: 2px 2px 8px  #c49cd6;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 8px #c49cd6;
+  margin-bottom: 40px;
 }
 
 .main h2 {
   margin: 16px 0;
   font-size: 30px;
+  background-color: #ffff;
 }
 
 .main span {
   margin-bottom: 16px;
   font-weight: bold;
+  background-color: #ffff;
 }
-
-/*media query para ficar responsivo*/
-@media (max-width: 620px) {
-  .title {
-    font-size: 60px;
-  }
-
-  .main h2 {
-    font-size: 28px;
-  }
-
-  .main {
-    width: 80px;
-    min-height: 250px;
-  }
+.main ul {
+  list-style: none;
+}
+.main li {
+  font-weight: bold;
+  background-color: #ffff;
 }
