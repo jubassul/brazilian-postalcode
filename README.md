@@ -7,4 +7,4 @@
 ## Technologies
 ReactJs.
 
-## Check this project <a hreft= "https://brazilian-postalcode.vercel.app/">here</a>
+## Check this project <a href= "https://brazilian-postalcode.vercel.app/">here</a>
