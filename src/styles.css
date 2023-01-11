@@ -136,3 +136,7 @@ input::placeholder {
   font-weight: bold;
   background-color: #ffff;
 }
+.error-message{
+ color: #990F02;
+ font-weight: 600;
+}

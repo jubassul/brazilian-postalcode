@@ -76,8 +76,8 @@ function App() {
               <FiSearch className="search-img" size={25} color="#AA14F0" />
             </button>
           </div>
-          {errorAddress ? <span>Preencha algum campo</span> : ""}
-          {notFoundAddress ? <span>Não Encontrado</span> : ""}
+          {errorAddress ? <span className="error-message">Type a text!</span> : ""}
+          {notFoundAddress ? <span className="error-message">Not Found!</span> : ""}
           <img src={Img} />
         </div>
         <div className="containerSearchCep">
@@ -108,8 +108,8 @@ function App() {
           <button className="button-postal-code" onClick={handleSearchCep}>
             Search
           </button>
-          {errorCep ? <span>Preencha algum campo</span> : ""}
-          {notFoundCep ? <span>Não Encontrado</span> : ""}
+          {errorCep ? <span className="error-message">Type a text!</span> : ""}
+          {notFoundCep ? <span className="error-message">Not Found!</span> : ""}
         </div>
       </div>
       {Object.keys(searchAddress).length > 0 && (
