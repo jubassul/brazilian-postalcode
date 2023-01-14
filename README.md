@@ -2,7 +2,7 @@
 
 ## About the Project:
 - You can search by Brazilian postal code and address.
-- Use the ViaCEP API.
+- Integrated with the ViaCEP API.
 
 ## Technologies
 ReactJs.
